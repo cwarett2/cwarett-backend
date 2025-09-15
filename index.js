@@ -132,7 +132,7 @@ const orderSchema = new mongoose.Schema({
   },
   paymentMethod: {
     type: String,
-    enum: ['d17', 'flouci', 'virement'],
+    enum: ['d17', 'flouci', 'virement','e-dinar','poste'],
     default: 'd17'
   },
   status: {
@@ -367,4 +367,5 @@ app.get('/api/health', (req, res) => {
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
 });
+
 
