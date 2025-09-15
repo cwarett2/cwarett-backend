@@ -9,8 +9,6 @@ const PORT = process.env.PORT || 5000;
 // Middleware
 app.use(cors({
   origin: [
-    'http://localhost:8080',
-    'http://localhost:3000',
     'https://cwarett1.netlify.app'
   ],
   credentials: true
@@ -369,3 +367,4 @@ app.get('/api/health', (req, res) => {
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
 });
+
