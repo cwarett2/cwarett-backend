@@ -8,10 +8,13 @@ const PORT = process.env.PORT || 5000;
 
 // Middleware
 app.use(cors({
-  origin: 'https://cwarett1.netlify.app',
+  origin: [
+    'http://localhost:8080',
+    'http://localhost:3000',
+    'https://cwarett1.netlify.app'
+  ],
   credentials: true
 }));
-
 app.use(express.json());
 
 // Health check endpoint
@@ -128,6 +131,11 @@ const orderSchema = new mongoose.Schema({
   message: {
     type: String,
     default: ''
+  },
+  paymentMethod: {
+    type: String,
+    enum: ['d17', 'flouci', 'virement'],
+    default: 'd17'
   },
   status: {
     type: String,
@@ -360,5 +368,4 @@ app.get('/api/health', (req, res) => {
 
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
-
 });
